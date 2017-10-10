@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd app
+cd greetings
 serverless deploy -v
