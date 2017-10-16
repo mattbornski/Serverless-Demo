@@ -1,0 +1,24 @@
+service: insults
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  region: us-east-1
+
+functions:
+  insults:
+    handler: handler.insults
+    events:
+      - http:
+          path: /
+          method: GET
+
+plugins:
+  - serverless-domain-manager
+
+custom:
+  customDomain:
+    domainName: serverless-demo.bornski.io # Change this to your domain.
+    basePath: '${self:service}' # This will be prefixed to all routes
+    stage: ${self:provider.stage}
+    createRoute53Record: true
