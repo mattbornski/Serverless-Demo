@@ -10,9 +10,8 @@ functions:
     handler: handler.greetings
     events:
       - http:
-        path: greetings
-        method: GET
-        cors: true
+          path: /
+          method: GET
 
 plugins:
   - serverless-domain-manager
